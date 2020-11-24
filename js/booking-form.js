@@ -24,6 +24,7 @@ $(document).on("pageinit", "#booking-form-page", function () {
     BOOK_REGISTRATION.sms = $("#sms").prop("checked");
 
     $("#open-dialog-book-details").click();
+    $("#reset-book-form").click();
   });
 });
 

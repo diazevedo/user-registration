@@ -23,7 +23,7 @@ $(document).on("pageinit", "#registration-page", function () {
       $("#validation").show();
       return;
     }
-    console.log($("#name").val());
+
     USER_REGISTRATION.name = $("#name").val().trim();
     USER_REGISTRATION.email = $("#email").val().trim();
     USER_REGISTRATION.camera =

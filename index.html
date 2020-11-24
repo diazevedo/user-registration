@@ -12,13 +12,13 @@
 
     <link rel="stylesheet" type="text/css" href="./styles/general.css" />
 
-    <script src="jQuery/jquery-1.11.2.min.js"></script>
-    <script src="jQuery/jquery.mobile-1.4.5.min.js"></script>
-    <script src="js/constants.js"></script>
-    <script src="js/registration.js"></script>
-    <script src="js/booking-form.js"></script>
-    <script src="js/booking-dialog.js"></script>
-    <script src="js/user-dialog.js"></script>
+    <script src="./jQuery/jquery-1.11.2.min.js"></script>
+    <script src="./jQuery/jquery.mobile-1.4.5.min.js"></script>
+    <script src="./js/constants.js"></script>
+    <script src="./js/registration.js"></script>
+    <script src="./js/booking-form.js"></script>
+    <script src="./js/booking-dialog.js"></script>
+    <script src="./js/user-dialog.js"></script>
   </head>
 
   <body>
@@ -31,10 +31,10 @@
       <div data-role="main" class="ui-content">
         <ul data-role="listview">
           <li>
-            <a href="registration-page.html" data-prefetch>Registration</a>
+            <a href="#registration-page">Registration</a>
           </li>
           <li>
-            <a href="booking.html" data-prefetc>Units Offered this Weekend</a>
+            <a href="#booking-form-page" data-prefetc>Units Offered this Weekend</a>
           </li>
           <li><a href="#course-structure">Course Structure</a></li>
           <li>
@@ -47,6 +47,356 @@
       </div>
     </div>
 
+    <!-- registration page -->
+    <div
+      data-role="page"
+      id="registration-page"
+      data-dom-cache="true"
+      method="post"
+    >
+      <div data-role="header" data-add-back-btn="true">
+        <h1>Registration</h1>
+      </div>
+      <!--<div data-role="content">-->
+      <div data-role="main" class="ui-content">
+        <!-- Name --->
+        <form>
+          <div data-role="fieldcontain" class="name-container">
+            <label for="name">Name:</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Peter"
+              title="The minimum number of characters entered is two!"
+              required
+            />
+          </div>
+
+          <!-- e-Mail --->
+          <div data-role="fieldcontain" class="email-container">
+            <label for="email">e-Mail:</label>
+            <input type="text" name="email" id="email" required />
+          </div>
+
+          <div data-role="fieldcontain" class="email-confirmation-container">
+            <label for="email-confirmation">Confirm e-Mail:</label>
+            <input
+              type="email"
+              name="email-confirmation"
+              id="email-confirmation"
+              required
+            />
+          </div>
+
+          <!-- Camera type --->
+
+          <div data-role="fieldcontain" class="camera-type-container">
+            <fieldset data-role="controlgroup" data-type="horizontal">
+              <legend>Camera Type:</legend>
+
+              <input
+                type="radio"
+                name="camera-type-radio"
+                id="DSLR"
+                checked="checked"
+                value="DSLR"
+              />
+              <label for="DSLR">DSLR</label>
+
+              <input type="radio" name="camera-type-radio" id="PS" value="PS" />
+              <label for="PS">Point and Shoot</label>
+
+              <input
+                type="radio"
+                name="camera-type-radio"
+                id="no-camera"
+                value="no"
+              />
+              <label for="no-camera">No Camera</label>
+            </fieldset>
+          </div>
+
+          <!-- Interested in --->
+          <div data-role="fieldcontain" class="interests-container">
+            <label>Interested in:</label>
+            <fieldset
+              id="interestedIn"
+              data-role="controlgroup"
+              data-type="vertical"
+            >
+              <label for="chkLand">Landscape</label>
+              <input
+                type="checkbox"
+                name="chkLand"
+                id="chkLand"
+                value="landscape"
+              />
+
+              <label for="chkFash">Fashion</label>
+              <input
+                type="checkbox"
+                name="chkFash"
+                id="chkFash"
+                value="fashion"
+              />
+
+              <label for="chkFood">Food</label>
+              <input type="checkbox" name="chkFood" id="chkFood" value="food" />
+
+              <label for="chkPort">Portraiture</label>
+              <input
+                type="checkbox"
+                name="chkPort"
+                id="chkPort"
+                value="portraiture"
+              />
+
+              <label for="chkSport">Sport</label>
+              <input
+                type="checkbox"
+                name="chkSport"
+                id="chkSport"
+                value="sport"
+              />
+
+              <label for="chkOther">Other</label>
+              <input
+                type="checkbox"
+                name="chkOther"
+                id="chkOther"
+                value="other"
+              />
+            </fieldset>
+          </div>
+
+          <!-- Others Areas --->
+          <div
+            id="divOther"
+            data-role="fieldcontain"
+            class="other-areas-container"
+          >
+            <label for="txtOther">Others Areas:</label>
+            <textarea
+              type="hidden"
+              cols="10"
+              rows="4"
+              name="txtOther"
+              id="txtOther"
+            ></textarea>
+          </div>
+
+          <div id="validation" class="error-container" data-inline="true"></div>
+
+          <!-- buttons --->
+          <div class="flex-container">
+            <button data-inline="true" id="register-button" type="submit">
+              Register
+            </button>
+            <button data-inline="true" type="reset" id="reset-form-button">
+              Start Again
+            </button>
+          </div>
+        </form>
+        <a
+          href="#user-dialog"
+          class="dialog-link"
+          id="open-dialog"
+          >Open dialog</a
+        >
+      </div>
+      <div data-role="footer">
+        <h4>Luciano Azevedo</h4>
+      </div>
+    </div>
+
+    <!-- dialog user page -->
+
+    <div data-role="page" id="user-dialog" data-dialog="true">
+      <div
+        data-role="header"
+        data-theme="b"
+        role="banner"
+        class="ui-header ui-bar-b"
+      >
+        <a
+          href="#registration-page"
+          class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-left"
+          data-rel="back"
+          >Close</a
+        >
+        <h1 class="ui-title" role="heading" aria-level="1">Summary</h1>
+      </div>
+      <div role="main" class="ui-content">
+        <p>Thank you <strong class="user-name"></strong> for registering!</p>
+        <p>Your mail address is: <strong class="user-mail"></strong></p>
+        <p>You have <strong class="user-camera"></strong></p>
+        <p>You are interested in the following types od photography: <ul class="interest-items"></ul></p>
+        <a
+          href="#registration-page"
+          data-rel="back"
+          class="ui-btn ui-shadow ui-corner-all ui-btn-a"
+          >Close</a
+        >
+      </div>
+      <div data-role="footer">
+        <h4>Luciano Azevedo</h4>
+      </div>
+    </div>
+    <!-- booking page  -->
+    <div data-role="page" id="booking-form-page">
+      <div data-role="header" data-add-back-btn="true">
+        <h1>Units Offered this Weekend</h1>
+      </div>
+      <!--<div data-role="content">-->
+      <div data-role="main" class="ui-content">
+        Enrol into one the units offered this coming weekend as listed below
+        <br /><i>You may wish to brimg a friend along</i>
+        <form id="book-form">
+        <!-- Name --->
+          <div data-role="fieldcontain">
+            <label for="name-book-form">Name:</label>
+            <input
+              type="text"
+              name="name-book-form"
+              id="name-book-form"
+              required
+            />
+          </div>
+  
+          <!-- People --->
+          <div data-role="fieldcontain">
+            <label for="number-of-people">Number of People:</label>
+            <input type="number" name="number-of-people" id="number-of-people" value="1"/>
+          </div>
+  
+          <!-- Mobile --->
+          <div data-role="fieldcontain">
+            <label for="mobile">Mobile Phone:<br /><i>(optional)</i></label>
+            <input type="tel" name="mobile" id="mobile" pattern="[0-9]{10}" placeholder="0412345678"/>
+          </div>
+  
+          <!-- Units --->
+          <div data-role="fieldcontain">
+            <label for="week-units" class="select">Units offered this week:</label>
+            <select name="week-units" id="week-units">
+              <option value="Unit 1" data-price="100">Unit 1: The Camera and Lenses </option>
+              <option value="Unit 3" selected="selected" data-price="100">
+                Unit 3: Lighting $100
+              </option>
+              <option value="Unit 5" data-price="150">Unit 5: Style $150</option>
+              <option value="Unit 7" data-price="200">Unit 7: Photojournalism $200</option>
+            </select>
+          </div>
+  
+          <!-- Attend --->
+          <div data-role="fieldcontain">
+            <fieldset data-role="controlgroup">
+              <legend>Attend on:</legend>
+              <input type="radio" name="day-attend-on" id="friday-radio" checked="checked" value="Friday"/>
+              <label for="friday-radio">Friday</label>
+  
+              <input type="radio" name="day-attend-on" id="saturday-radio" value="Saturday" />
+              <label for="saturday-radio">Saturday</label>
+  
+              <input type="radio" name="day-attend-on" id="sunday-radio"  value="Sunday">
+              <label for="sunday-radio">Sunday</label>
+            </fieldset>
+          </div>
+  
+          <!-- SMS --->
+          <div data-role="fieldcontain">
+            <fieldset data-role="controlgroup">
+              <legend>SMS Notification:</legend>
+              <input
+                type="checkbox"
+                name="sms"
+                id="sms"
+                class="custom"
+                checked="checked"
+              />
+              <label for="sms">Receive SMS notification prior to event</label>
+            </fieldset>
+          </div>
+          
+          <div id="validation-book-form" class="error-container" data-inline="true"></div>
+  
+          <!-- buttons --->
+          <div class="flex-container">
+            <button
+              data-inline="true"
+              id="register-book-form"
+              type="submit"
+            >
+              Register
+            </button>
+            <button
+              data-inline="true"
+              type="reset"
+              id="reset-book-form"
+            >
+              Start Again
+            </button>
+          </div>
+        </div>
+      </form>
+  
+      
+      <div data-role="footer">
+        <h4>Luciano Azevedo</h4>
+      </div>
+  
+      <a href="#booking-details" class="dialog-link" id="open-dialog-book-details" data-prefetch>Open dialog</a>
+    </div>
+    
+    <!-- booking dialog -->
+
+    <div data-role="page" id="booking-details" data-dialog="true">
+      <div
+        data-role="header"
+        data-theme="b"
+        role="banner"
+        class="ui-header ui-bar-b"
+      >
+        <a
+          href="#booking-form-page"
+          class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-left"
+          data-rel="back"
+          >Close</a
+        >
+        <h1 class="ui-title" role="heading" aria-level="1">Summary</h1>
+      </div>
+      <div role="main" class="ui-content">
+        <p>
+          Thanks <strong class="user-booking"></strong> for enronlling into:
+          <strong class="unit-details"></strong> on
+          <strong class="attending-on"></strong>
+        </p>
+        <p>The cost of this unit is: <strong class="unit-cost"></strong></p>
+        <p>
+          There will be <strong class="number-of-people-on"></strong> attending
+        </p>
+        <p>The total cost will be: <strong class="total-cost"></strong></p>
+        <p class="receive-sms hidden">
+          You wish to receive an SMS notification on:
+          <strong class="user-mobile"></strong>
+        </p>
+        <p class="no-receive-sms hidden">
+          You do NOT wish to receive an SMS notification prior to the event
+        </p>
+        <a
+          href="#booking-form-page"
+          data-rel="back"
+          class="ui-btn ui-shadow ui-corner-all ui-btn-a"
+          >Close</a
+        >
+      </div>
+      <div data-role="footer">
+        <h4>Luciano Azevedo</h4>
+      </div>
+    </div>
+    <!-- course structure -->
+
     <div data-role="page" id="course-structure">
       <div data-role="header" data-add-back-btn="true">
         <h1>Course Structure</h1>
@@ -54,7 +404,7 @@
 
       <div data-role="main" class="ui-content center">
         <img
-          src="../styles/img/under-construction.jpg"
+          src="images/under-construction.jpg"
           alt="Under construction"
         />
       </div>
