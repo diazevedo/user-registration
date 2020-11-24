@@ -23,7 +23,7 @@ $(document).on("pageinit", "#registration-page", function () {
       $("#validation").show();
       return;
     }
-
+    console.log($("#name").val());
     USER_REGISTRATION.name = $("#name").val().trim();
     USER_REGISTRATION.email = $("#email").val().trim();
     USER_REGISTRATION.camera =
@@ -95,15 +95,4 @@ function validateFormData() {
   }
 
   return validation;
-}
-
-function onRegisterClick() {
-  var str =
-    "Thank you " +
-    name2 +
-    " for registering!" +
-    "<br />Your mail address is: " +
-    email2;
-
-  document.getElementById("dialogAns").innerHTML = str;
 }

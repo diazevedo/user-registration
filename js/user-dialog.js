@@ -1,5 +1,6 @@
 $(document).on("pagebeforeshow", "#user-dialog", function (event, data) {
-  $(".user-name", $(this)).text(USER_REGISTRATION.name);
+  console.log(USER_REGISTRATION);
+  $(".user-booking", $(this)).text(USER_REGISTRATION.name);
   $(".user-mail", $(this)).text(USER_REGISTRATION.email);
   $(".user-camera", $(this)).text(USER_REGISTRATION.camera);
 

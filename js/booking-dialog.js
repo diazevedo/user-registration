@@ -1,4 +1,5 @@
 $(document).on("pagebeforeshow", "#booking-details", function (event, data) {
+  console.log(BOOK_REGISTRATION);
   $(".user-booking").text(BOOK_REGISTRATION.name);
   $(".unit-details").text(BOOK_REGISTRATION.unit);
   $(".attending-on").text(BOOK_REGISTRATION.attending_on);
