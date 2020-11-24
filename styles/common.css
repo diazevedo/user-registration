@@ -1,0 +1,24 @@
+.flex-container {
+  display: flex;
+  justify-content: center;
+}
+
+.error-container {
+  color: red;
+  font-style: italic;
+}
+
+.other-areas-container {
+  display: none;
+}
+
+.dialog-link {
+  display: none;
+}
+
+.interest-items {
+  list-style: none;
+}
+.interest-items li {
+  margin: 10px 0;
+}

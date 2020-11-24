@@ -1,0 +1,180 @@
+<head>
+  <!-- <link
+    rel="stylesheet"
+    type="text/css"
+    href="css/jquery.mobile-1.4.5.min.css"
+  />
+  <script src="jQuery/jquery-1.11.2.min.js"></script>
+  <script src="jQuery/jquery.mobile-1.4.5.min.js"></script>
+  <script src="js/registration.js"></script> -->
+</head>
+<body>
+  <div
+    data-role="page"
+    id="registration-page"
+    data-dom-cache="true"
+    method="post"
+  >
+    <div data-role="header" data-add-back-btn="true">
+      <h1>Registration</h1>
+    </div>
+    <!--<div data-role="content">-->
+    <div data-role="main" class="ui-content">
+      <!-- Name --->
+      <form>
+        <div data-role="fieldcontain" class="name-container">
+          <label for="name">Name:</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Peter"
+            title="The minimum number of characters entered is two!"
+            required
+          />
+        </div>
+
+        <!-- e-Mail --->
+        <div data-role="fieldcontain" class="email-container">
+          <label for="email">e-Mail:</label>
+          <input type="text" name="email" id="email" required />
+        </div>
+
+        <div data-role="fieldcontain" class="email-confirmation-container">
+          <label for="email-confirmation">Confirm e-Mail:</label>
+          <input
+            type="email"
+            name="email-confirmation"
+            id="email-confirmation"
+            required
+          />
+        </div>
+
+        <!-- Camera type --->
+
+        <div data-role="fieldcontain" class="camera-type-container">
+          <fieldset data-role="controlgroup" data-type="horizontal">
+            <legend>Camera Type:</legend>
+
+            <input
+              type="radio"
+              name="camera-type-radio"
+              id="DSLR"
+              checked="checked"
+              value="DSLR"
+            />
+            <label for="DSLR">DSLR</label>
+
+            <input type="radio" name="camera-type-radio" id="PS" value="PS" />
+            <label for="PS">Point and Shoot</label>
+
+            <input
+              type="radio"
+              name="camera-type-radio"
+              id="no-camera"
+              value="no camera"
+            />
+            <label for="no-camera">No Camera</label>
+          </fieldset>
+        </div>
+
+        <!-- Interested in --->
+        <div data-role="fieldcontain" class="interests-container">
+          <label>Interested in:</label>
+          <fieldset
+            id="interestedIn"
+            data-role="controlgroup"
+            data-type="vertical"
+          >
+            <label for="chkLand">Landscape</label>
+            <input
+              type="checkbox"
+              name="chkLand"
+              id="chkLand"
+              value="landscape"
+            />
+
+            <label for="chkFash">Fashion</label>
+            <input
+              type="checkbox"
+              name="chkFash"
+              id="chkFash"
+              value="fashion"
+            />
+
+            <label for="chkFood">Food</label>
+            <input type="checkbox" name="chkFood" id="chkFood" value="food" />
+
+            <label for="chkPort">Portraiture</label>
+            <input
+              type="checkbox"
+              name="chkPort"
+              id="chkPort"
+              value="portraiture"
+            />
+
+            <label for="chkSport">Sport</label>
+            <input
+              type="checkbox"
+              name="chkSport"
+              id="chkSport"
+              value="sport"
+            />
+
+            <label for="chkOther">Other</label>
+            <input
+              type="checkbox"
+              name="chkOther"
+              id="chkOther"
+              value="other"
+            />
+          </fieldset>
+        </div>
+
+        <!-- Others Areas --->
+        <div
+          id="divOther"
+          data-role="fieldcontain"
+          class="other-areas-container"
+        >
+          <label for="txtOther">Others Areas:</label>
+          <textarea
+            type="hidden"
+            cols="10"
+            rows="4"
+            name="txtOther"
+            id="txtOther"
+          ></textarea>
+        </div>
+
+        <div id="validation" class="error-container" data-inline="true"></div>
+
+        <!-- buttons --->
+        <div class="flex-container">
+          <button
+            data-inline="true"
+            id="register-button"
+            title="Confirm all informations given"
+            type="submit"
+          >
+            Register
+          </button>
+          <button
+            data-inline="true"
+            type="reset"
+            id="reset-form-button"
+            title="Clean all informations"
+          >
+            Start Again
+          </button>
+        </div>
+      </form>
+      <a href="details.html" class="dialog-link" id="open-dialog" data-prefetch
+        >Open dialog</a
+      >
+    </div>
+    <div data-role="footer">
+      <h4>Luciano Azevedo</h4>
+    </div>
+  </div>
+</body>
