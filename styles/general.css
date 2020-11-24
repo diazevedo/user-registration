@@ -6,6 +6,7 @@
 .error-container {
   color: red;
   font-style: italic;
+  text-align: center;
 }
 
 .other-areas-container {
@@ -26,4 +27,9 @@
 
 .hidden {
   display: none;
+}
+
+.center {
+  display: flex !important;
+  justify-content: center !important;
 }

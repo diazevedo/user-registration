@@ -1,6 +1,4 @@
 $(document).on("pageinit", "#registration-page", function () {
-  // Hide Others Areas until it be checked
-
   $("#chkOther").on("change", function (event) {
     if (this.checked) {
       $("#divOther").show();
@@ -25,6 +23,22 @@ $(document).on("pageinit", "#registration-page", function () {
       $("#validation").show();
       return;
     }
+
+    USER_REGISTRATION.name = $("#name").val().trim();
+    USER_REGISTRATION.email = $("#email").val().trim();
+    USER_REGISTRATION.camera =
+      $("[name=camera-type-radio]:checked").val() + " camera";
+
+    USER_REGISTRATION.interests = [];
+
+    $("#interestedIn input:checked").each(function (index) {
+      if ($(this).val() !== "other") {
+        USER_REGISTRATION.interests.push($(this).val());
+      } else if ($(this).val() === "other") {
+        USER_REGISTRATION.interests.push($("#txtOther").val());
+      }
+    });
+
     $("#open-dialog").click();
 
     $("#reset-form-button").click();

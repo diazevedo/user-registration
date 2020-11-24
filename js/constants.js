@@ -1,3 +1,10 @@
+const USER_REGISTRATION = {
+  name: "",
+  email: "",
+  camera: "",
+  interests: [],
+};
+
 const BOOK_REGISTRATION = {
   name: "",
   number_of_people: 1,

@@ -1,333 +1,48 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<style>
-/* The message box is shown when the user clicks on the "txtName" field */
-#message {
-  display:none;
-  background: #f1f1f1;
-  color: #000;
-  position: relative;
-  padding: 20px;
-  margin-top: 10px;
-}
-</style>
-<title>Gallery</title>
-    
-<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css">
-<script src="jQuery/jquery-1.11.2.min.js"></script>
-<script src="jQuery/jquery.mobile-1.4.5.min.js"></script>
-<script>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      /* The message box is shown when the user clicks on the "txtName" field */
+      #message {
+        display: none;
+        background: #f1f1f1;
+        color: #000;
+        position: relative;
+        padding: 20px;
+        margin-top: 10px;
+      }
+    </style>
+    <title>Gallery</title>
 
-// Code for Page 2 -------------------------------------------
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../css/jquery.mobile-1.4.5.min.css"
+    />
+    <script src="../jQuery/jquery-1.11.2.min.js"></script>
+    <script src="../jQuery/jquery.mobile-1.4.5.js"></script>
+    <link rel="stylesheet" type="text/css" href="../styles/general.css" />
+  </head>
+  <body>
+    <div data-role="page" id="gallery">
+      <div data-role="header" data-add-back-btn="true" data-rel="back">
+        <a
+          role="button"
+          href="javascript:void(0);"
+          class="ui-btn ui-corner-all ui-shadow ui-btn-left ui-toolbar-back-btn ui-icon-carat-l ui-btn-icon-left"
+          data-rel="back"
+          >Back</a
+        >
+        <h1>Members Gallery</h1>
+      </div>
 
-var myInput = document.getElementById("txtName");
-var length = document.getElementById("length");
-
-// When the user clicks on the name field, show the message box
-myInput.onfocus = function() {
-  document.getElementById("message").style.display = "block";
-}
-
-// When the user clicks outside of the name field, hide the message box
-myInput.onblur = function() {
-  document.getElementById("message").style.display = "none";
-}
-
-// When the user starts to type something inside the name field
-myInput.onkeyup = function() {
- // Validate length
-  if(myInput.value.length >= 2) {
-    length.classList.remove("invalid");
-    length.classList.add("valid");
-  } else {
-    length.classList.remove("valid");
-    length.classList.add("invalid");
-  }
-
-}
-
-/*
-  // Hide Others Areas until it be checked
-  $(document).ready(function(){
-    $("#chkOther").on('click', function(){
-        if(document.getElementById("chkOther").checked)
-        {  
-            document.getElementById("txtOther").style.display='block';
-            document.getElementById("txtOther").value = "";
-
-        }
-        else
-            document.getElementById("txtOther").style.display='none';
-
-    });
-
-  });
-
-function doRegister()
-{
-    var str = "", name = "";
-
-   //  name = document.getElementById("txtName").value; // js way
-    name = $("#txtName").val();                      // jQuery way
-
-    str += "Hi " + name + "<br /><br />";
-}
-function doEmail()
-{
-    var email = "", confemail = "", str = "";
-
-    // get what the user entered into the text box
-    email = document.getElementById("txtEmail").value;
-    confemail = document.getElementById("txtConf").value;
-
-    // determine if the person can vote
-    if( email = confemail ) // true or false
-    {
-      str += "e-Mails match!";
-    }
-    else
-    {
-      str += "e-Mails do not match";
-    }
-
-    // put my message on the page
-    document.getElementById("emailAns").innerHTML = str;
-}
-{
-    // find out which radio button was checked
-    // if( document.getElementById("radRed").checked == true )
-    if( document.getElementById("chkLand").checked )
-      interest = "Landscape";
-    else if( document.getElementById("chkFash").checked )
-      interest = "Fashion";
-    else if( document.getElementById("chkFood").checked )
-      interest = "Food";
-    else if( document.getElementById("chkPort").checked )
-      interest = "Portraiture";
-    else if( document.getElementById("chkSport").checked )
-      interest = "Sport";
-    else if( document.getElementById("chkOther").checked )
-      interest = "Other";
-
-    // work out favourite food
-    console.log(document.getElementById("selfood").selectedIndex);
-    food += document.getElementById("selfood").value;
-
-    str += "Your Interestes are: " + food + "<br />";
-
-    // this time checked check boxes
-    if( document.getElementById("chkTheAge").checked )
-    {
-      newspaper += "The Age ";
-      count++;
-    }
-
-    if( document.getElementById("chkHeraldSun").checked )
-    {
-      newspaper += "Herald Sun ";
-      count++;
-    }
-
-    if( document.getElementById("chkFinancialReview").checked )
-    {
-      newspaper += "The Financial Review ";
-      count++;
-    }
-
-    if( document.getElementById("chkTheTimes").checked )
-    {
-      newspaper += "The Times ";
-      count++;
-    }
-
-    if ( count == 0 )
-        newspaper += "Ypou do Not read any newspapers"
-    else
-        str += "You read " + count + " newspapers: " + newspaper;
-
-    str += "<br />You favourite color is: " + color;
-
-    document.getElementById("ans").innerHTML = str;
-}
-
-function doStartAgain()
-{
-    // reset text boxes
-    // document.getElementById("txtName").value = ""; // js way
-    $("#txtName").val("");                            // jQuery way
-    $("#txtEmail").val("");
-    $("#txtConf").val("");  
-    // reset the check boxes
-    $("#radDslr").prop('checked', false).checkedboxradio('refresh');
-    $("#radPs").prop('checked', false).checkedboxradio('refresh');
-    $("#radNocamera").prop('checked', false).checkedboxradio('refresh');
-    $("#txtOther").val(""); 
-
-    // reseting the radio buttons to default state
-    $("#chkLandch").prop('checked', false).checkedboxradio('refresh'); // chaining
-    $("#chkFash").prop('checked', true).checkedboxradio('refresh'); // done 2 steps - takes longer
-    $("#chkFood").checkedboxradio('refresh');
-    $("#chkPort").prop('checked', false).checkedboxradio('refresh');
-    $("#chkSport").prop('checked', false).checkedboxradio('refresh');
-    $("#chkOther").prop('checked', false).checkedboxradio('refresh');
-
-    document.getElementById("ans").innerHTML = "";
-
-}
-
-</script>
-</head>
- 
-<body> 
-
-<!--Photography Club-------------------------------->
-
-<div data-role="page" id="page" data-theme="a">
-    <div data-role="header">
-        <h1>Photography Club</h1>
-    </div>
-    <!--<div data-role="content">-->
-    <div data-role="main" class="ui-content">	
-        <ul data-role="listview">
-            <li><a href="#page2">Registration</a></li>
-            <li><a href="#page3">Units Offered this Weekend</a></li>
-            <li><a href="#page4">Course Structure</a></li>
-            <li><a href="#page5">Members Gallery</a></li>
-        </ul>		
-   </div>
-   <div data-role="footer">
+      <div data-role="main" class="ui-content center">
+        <img src="../styles/img/under-construction.jpg" alt="" />
+      </div>
+      <div data-role="footer">
         <h4>Luciano Azevedo</h4>
-   </div>
-</div>
-    
-<!--Page 2------------------------------------------>
-
-<div data-role="page" id="page2">
-    <div data-role="header" data-add-back-btn="true">
-        <h1>Registration</h1>
+      </div>
     </div>
-    <!--<div data-role="content">-->
-        <div data-role="main" class="ui-content">	
-
-        <div data-role="fieldcontain">
-          <label for="txtName">Name:</label>
-          <input type="text" name="txtName" id="txtName" class="invalid" pattern="{2,}" title="The minimum number of characters entered is two!" required />
-        </div>
-		
-            <div id="message">
-                <h3>Name must contain:</h3>
-                <p id="length" class="invalid">Minimum <b>2 characters</b></p>
-            </div>
-
-        <div data-role="fieldcontain">
-          <label for="txtEmail">e-Mail:</label>
-          <input type="text" name="txtEmail" id="txtEmail" />
-        </div>
-                
-        <div data-role="fieldcontain">
-          <label for="txtConf">Confirm e-Mail:</label>
-          <input type="text" name="txtConf" id="txtConf" />
-        </div>
-
-        <div data-role="fieldcontain">
-              <fieldset data-role="controlgroup" data-type="horizontal">
-                <legend>Camera Type:</legend>
-                <input type="radio" name="radType1" id="radDslr" class="custom" checked="checked" />
-                <label for="radDslr">DSLR</label>
-                
-                <input type="radio" name="radType2" id="radPs" />
-                <label for="radPs">Point and Shoot</label>
-
-                <input type="radio" name="radType3" id="radNocamera" />
-                <label for="radNocamera">No Camera</label>
-              </fieldset>
-        </div>
-
-
-        <div data-role="fieldcontain">
-          <label for="myCheck">Interested in:</label>
-          <fieldset data-role="controlgroup" data-type="vertical">
-          
-            <label for="chkLand">Landscape</label>
-            <input type="checkbox" name="chkLand" id="chkLand"> 
-
-            <label for="chkFash">Fashion</label>
-            <input type="checkbox" name="chkFash" id="chkFash">
-
-            <label for="chkFood">Food</label>
-            <input type="checkbox" name="chkFood" id="chkFood">
-
-            <label for="chkPort">Portraiture</label>
-            <input type="checkbox" name="chkPort" id="chkPort">
-
-            <label for="chkSport">Sport</label>
-            <input type="checkbox" name="chkSport" id="chkSport">
-
-          </fieldset>
-
-           </div>            
-
-        <div data-role="fieldcontain">
-              <label for="txtOther">Others Areas:</label>
-              <textarea cols="40" rows="8" name="txtOther" id="txtOther"></textarea>
-        </div>
-
-          <div>        
-              <button data-inline="true" onClick="doRegister();">Register</button>
-              <button data-inline="true" onClick="doStartAgain();">Start Again</button>
-              <p id="ans"></p>
-          </div>
-    <div data-role="footer"> 
-        <h4>Luciano Azevedo</h4>    
-    </div>
-</div>
-    
-<!--Page 3------------------------------------------>
-
-<div data-role="page" id="page3">
-    <div data-role="header" data-add-back-btn="true">
-         <h1>Units Offered this Weekend</h1>
-    </div>
-    <!--<div data-role="content">-->
-    <div data-role="main" class="ui-content">	
-         Content		
-    </div>
-    <div data-role="footer">
-        <h4>Luciano Azevedo</h4>
-  	</div>
-</div>
-    
-<!--Page 4------------------------------------------>
-
-<div data-role="page" id="page4">
-    <div data-role="header" data-add-back-btn="true">
-          <h1>Course Structure</h1>
-    </div>
-    <!--<div data-role="content">-->
-    <div data-role="main" class="ui-content">	
-         Content		
-    </div>
-    <div data-role="footer">
-        <h4>Luciano Azevedo</h4>
-  	</div>
-</div>
-
-<!--Page 5------------------------------------------>
-
-<div data-role="page" id="page5">
-    <div data-role="header" data-add-back-btn="true">
-          <h1>Members Gallery</h1>
-    </div>
-    <!--<div data-role="content">-->
-    <div data-role="main" class="ui-content"> 
-         Content    
-    </div>
-    <div data-role="footer">
-        <h4>Luciano Azevedo</h4>
-    </div>
-</div>
-
-</body>
+  </body>
 </html>

@@ -1,4 +1,4 @@
-$(document).on("pageinit", "#units", function () {
+$(document).on("pageinit", "#booking-form-page", function () {
   $("#book-form").on("submit", function (event) {
     event.preventDefault();
     const validationErrors = validateBookForm();
@@ -47,14 +47,16 @@ function validateBookForm() {
   const mobile = $("#mobile").val().trim();
   const mobileRegex = /^[0-9]\d{9}$/;
 
-  const isMobileValid = mobile.length > 0 && mobileRegex.test(mobile);
-
-  if (!isMobileValid) {
+  if (mobile.length > 0 && !mobileRegex.test(mobile)) {
     validation.push("your mobile has to have 10 numbers.");
     $("#mobile").focus();
   }
 
-  if ($("#sms").prop("checked") && !isMobileValid) {
+  if (
+    $("#sms").prop("checked") &&
+    mobile.length < 10 &&
+    !mobileRegex.test(mobile)
+  ) {
     validation.push(
       "To receive SMS updates you must provide a valid mobile number."
     );

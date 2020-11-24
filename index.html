@@ -10,72 +10,36 @@
       href="css/jquery.mobile-1.4.5.min.css"
     />
 
-    <link rel="stylesheet" type="text/css" href="./styles/common.css" />
-
-    <style>
-      p {
-        text-align: center;
-      }
-    </style>
+    <link rel="stylesheet" type="text/css" href="./styles/general.css" />
 
     <script src="jQuery/jquery-1.11.2.min.js"></script>
-
     <script src="jQuery/jquery.mobile-1.4.5.min.js"></script>
     <script src="js/constants.js"></script>
     <script src="js/registration.js"></script>
-    <script src="js/book.js"></script>
-    <script src="js/book-details.js"></script>
-
-    <script>
-      $(document).on("pagebeforeshow", "#details", function (event, data) {
-        var that = this;
-        var parameters = $(this).data();
-
-        $(".user-name", $(this)).text($(data.prevPage[0]).find("#name").val());
-        $(".user-mail", $(this)).text($(data.prevPage[0]).find("#email").val());
-        $(".user-camera", $(this)).text(
-          $(data.prevPage[0]).find("[name=camera-type-radio]:checked").val() +
-            " camera"
-        );
-
-        $("#interestedIn input:checked", $(data.prevPage[0])).each(function (
-          item
-        ) {
-          let interest = "";
-
-          if ($(this).val() !== "other") {
-            interest = $(this).val();
-          } else if ($(this).val() === "other") {
-            interest = $("#txtOther", $(data.prevPage[0])).val();
-          }
-
-          $(".interest-items", $("#details")).append(
-            "<li><strong>" + interest + "</strong></li>"
-          );
-        });
-      });
-    </script>
+    <script src="js/booking-form.js"></script>
+    <script src="js/booking-dialog.js"></script>
+    <script src="js/user-dialog.js"></script>
   </head>
 
   <body>
     <!--Photography Club-->
-
     <div data-role="page" id="page" data-theme="a" data-dom-cache="true">
       <div data-role="header">
         <h1>Photography Club</h1>
       </div>
-      <!--<div data-role="content">-->
+
       <div data-role="main" class="ui-content">
         <ul data-role="listview">
           <li>
             <a href="registration-page.html" data-prefetch>Registration</a>
           </li>
           <li>
-            <a href="units.html" data-prefetc>Units Offered this Weekend</a>
+            <a href="booking.html" data-prefetc>Units Offered this Weekend</a>
           </li>
-          <li><a href="#page4">Course Structure</a></li>
-          <li><a href="#page5">Members Gallery</a></li>
-          <li><a href="pagetest.html">Page Gallery</a></li>
+          <li><a href="#course-structure">Course Structure</a></li>
+          <li>
+            <a href="./html/gallery.html" rel="external">Members Gallery</a>
+          </li>
         </ul>
       </div>
       <div data-role="footer">
@@ -83,43 +47,16 @@
       </div>
     </div>
 
-    <!--Page 2------------------------------------------>
-
-    <!--Page 3------------------------------------------>
-
-    <!--Page 4------------------------------------------>
-
-    <div data-role="page" id="page4">
+    <div data-role="page" id="course-structure">
       <div data-role="header" data-add-back-btn="true">
         <h1>Course Structure</h1>
       </div>
-      <!--<div data-role="content">-->
-      <div data-role="main" class="ui-content">Content</div>
-      <div data-role="footer">
-        <h4>Luciano Azevedo</h4>
-      </div>
-    </div>
 
-    <!--Page 5------------------------------------------>
-
-    <div data-role="page" id="page5">
-      <div data-role="header" data-add-back-btn="true">
-        <h1>Members Gallery</h1>
-      </div>
-      <!--<div data-role="content">-->
-      <div data-role="main" class="ui-content">Content</div>
-      <div data-role="footer">
-        <h4>Luciano Azevedo</h4>
-      </div>
-    </div>
-
-    <div data-role="page" id="page5" data-dialog="true">
-      <div data-role="header">
-        <h1>Dialog Box</h1>
-      </div>
-      <!--<div data-role="content">-->
-      <div data-role="main" class="ui-content">
-        <p id="dialogAns"></p>
+      <div data-role="main" class="ui-content center">
+        <img
+          src="../styles/img/under-construction.jpg"
+          alt="Under construction"
+        />
       </div>
       <div data-role="footer">
         <h4>Luciano Azevedo</h4>
