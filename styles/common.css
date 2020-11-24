@@ -19,6 +19,11 @@
 .interest-items {
   list-style: none;
 }
+
 .interest-items li {
   margin: 10px 0;
+}
+
+.hidden {
+  display: none;
 }

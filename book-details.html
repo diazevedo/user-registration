@@ -1,0 +1,49 @@
+<head>
+  <script src="./js/book-details.js"></script>
+</head>
+<body>
+  <div data-role="page" id="book-details" data-dialog="true">
+    <div
+      data-role="header"
+      data-theme="b"
+      role="banner"
+      class="ui-header ui-bar-b"
+    >
+      <a
+        href="registration-page.html"
+        class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-left"
+        data-rel="back"
+        >Close</a
+      >
+      <h1 class="ui-title" role="heading" aria-level="1">Summary</h1>
+    </div>
+    <div role="main" class="ui-content">
+      <p>
+        Thanks <strong class="user-booking"></strong> for enronlling into:
+        <strong class="unit-details"></strong> on
+        <strong class="attending-on"></strong>
+      </p>
+      <p>The cost of this unit is: <strong class="unit-cost"></strong></p>
+      <p>
+        There will be <strong class="number-of-people-on"></strong> attending
+      </p>
+      <p>The total cost will be: <strong class="total-cost"></strong></p>
+      <p class="receive-sms hidden">
+        You wish to receive an SMS notification on:
+        <strong class="user-mobile"></strong>
+      </p>
+      <p class="no-receive-sms hidden">
+        You do NOT wish to receive an SMS notification prior to the event
+      </p>
+      <a
+        href="registration-page.html"
+        data-rel="back"
+        class="ui-btn ui-shadow ui-corner-all ui-btn-a"
+        >Close</a
+      >
+    </div>
+    <div data-role="footer">
+      <h4>Luciano Azevedo</h4>
+    </div>
+  </div>
+</body>

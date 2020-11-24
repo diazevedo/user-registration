@@ -21,15 +21,16 @@
     <script src="jQuery/jquery-1.11.2.min.js"></script>
 
     <script src="jQuery/jquery.mobile-1.4.5.min.js"></script>
+    <script src="js/constants.js"></script>
     <script src="js/registration.js"></script>
+    <script src="js/book.js"></script>
+    <script src="js/book-details.js"></script>
 
     <script>
       $(document).on("pagebeforeshow", "#details", function (event, data) {
-        console.count(3);
         var that = this;
         var parameters = $(this).data();
 
-        console.log("jnsad");
         $(".user-name", $(this)).text($(data.prevPage[0]).find("#name").val());
         $(".user-mail", $(this)).text($(data.prevPage[0]).find("#email").val());
         $(".user-camera", $(this)).text(
@@ -41,20 +42,17 @@
           item
         ) {
           let interest = "";
+
           if ($(this).val() !== "other") {
             interest = $(this).val();
           } else if ($(this).val() === "other") {
             interest = $("#txtOther", $(data.prevPage[0])).val();
           }
 
-          console.log($(".interest-items", $(".ui-page-active")).length);
           $(".interest-items", $("#details")).append(
             "<li><strong>" + interest + "</strong></li>"
           );
-          // console.log($(".interest-items", $("#details")).html());
         });
-
-        // alert(parameter);
       });
     </script>
   </head>
@@ -72,7 +70,9 @@
           <li>
             <a href="registration-page.html" data-prefetch>Registration</a>
           </li>
-          <li><a href="#page3">Units Offered this Weekend</a></li>
+          <li>
+            <a href="units.html" data-prefetc>Units Offered this Weekend</a>
+          </li>
           <li><a href="#page4">Course Structure</a></li>
           <li><a href="#page5">Members Gallery</a></li>
           <li><a href="pagetest.html">Page Gallery</a></li>
@@ -86,112 +86,6 @@
     <!--Page 2------------------------------------------>
 
     <!--Page 3------------------------------------------>
-
-    <div data-role="page" id="page3">
-      <div data-role="header" data-add-back-btn="true">
-        <h1>Units Offered this Weekend</h1>
-      </div>
-      <!--<div data-role="content">-->
-      <div data-role="main" class="ui-content">
-        Enrol into one the units offered this coming weekend as listed below
-        <br /><i>You may wish to brimg a friend along</i>
-
-        <!-- Name --->
-        <div data-role="fieldcontain">
-          <label for="txtName2">Name:</label>
-          <input
-            type="text"
-            name="txtName2"
-            id="txtName2"
-            title="The minimum number of characters entered is two!"
-            required
-          />
-        </div>
-
-        <!-- People --->
-        <div data-role="fieldcontain">
-          <label for="txtPeople">Number of People:</label>
-          <input type="text" name="txtName" id="txtPeople" title="" required />
-        </div>
-
-        <!-- Mobile --->
-        <div data-role="fieldcontain">
-          <label for="txtMobile">Mobile Phone:<br /><i>(optional)</i></label>
-          <input
-            type="text"
-            name="txtMobile"
-            id="txtMobile"
-            title=""
-            required
-          />
-        </div>
-
-        <!-- Units --->
-        <div data-role="fieldcontain">
-          <label for="weekUnits" class="select">Units offered this week:</label>
-          <select name="weekUnits" id="weekUnits">
-            <option value="Unit1">Unit 1: The Camera and Lenses $100</option>
-            <option value="Unit3" selected="selected">
-              Unit 3: Lighting $100
-            </option>
-            <option value="Unit5">Unit 5: Style $150</option>
-            <option value="Unit7">Unit 7: Photojournalism $200</option>
-          </select>
-        </div>
-
-        <!-- Attend --->
-        <div data-role="fieldcontain">
-          <fieldset data-role="controlgroup">
-            <legend>Attend on:</legend>
-            <input type="radio" name="radDay" id="radFri" checked="checked" />
-            <label for="radFri">Friday</label>
-
-            <input type="radio" name="radDay" id="radSat" />
-            <label for="radSat">Saturday</label>
-
-            <input type="radio" name="radDay" id="radSun" />
-            <label for="radSun">Sunday</label>
-          </fieldset>
-        </div>
-
-        <!-- SMS --->
-        <div data-role="fieldcontain">
-          <fieldset data-role="controlgroup">
-            <legend>SMS Notification:</legend>
-            <input
-              type="checkbox"
-              name="chkSMS"
-              id="chkSMS"
-              class="custom"
-              checked="checked"
-            />
-            <label for="chkSMS">Receive SMS notification prior to event</label>
-          </fieldset>
-        </div>
-
-        <!-- buttons --->
-        <br /><br /><br /><button
-          data-inline="true"
-          onClick="doBook();"
-          title="Confirm your booking"
-        >
-          Book Units
-        </button>
-        <p>
-          <button
-            data-inline="true"
-            onClick="doStartAgain2();"
-            title="Clean all informations"
-          >
-            Start Again
-          </button>
-        </p>
-        <p id="ans2"></p>
-      </div>
-      <div data-role="footer">
-        <h4>Luciano Azevedo</h4>
-      </div>
-    </div>
 
     <!--Page 4------------------------------------------>
 

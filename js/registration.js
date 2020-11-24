@@ -36,10 +36,6 @@ $(document).on("pageinit", "#registration-page", function () {
   });
 });
 
-// $(document).on("pagebeforeshow", "#registration-page", function () {
-//   console.log("befopororor");
-// });
-
 /**
  * To validate the data entered into form
  */
