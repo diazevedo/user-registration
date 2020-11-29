@@ -1,3 +1,8 @@
+/**
+ * on the booking form page initialisation the methods are attached to the page
+ * elements --> Form submit
+ */
+
 $(document).on("pageinit", "#booking-form-page", function () {
   $("#book-form").on("submit", function (event) {
     event.preventDefault();
@@ -28,6 +33,10 @@ $(document).on("pageinit", "#booking-form-page", function () {
   });
 });
 
+/**
+ * Checks if there is any errors in the input data put by the user
+ * @return {array} validation - an array with the errors messages if there is any
+ */
 function validateBookForm() {
   const validation = [];
 

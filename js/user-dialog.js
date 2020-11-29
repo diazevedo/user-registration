@@ -1,3 +1,6 @@
+/**
+ * before dialog to show the user details opens it sets the values to the dialog.
+ */
 $(document).on("pagebeforeshow", "#user-dialog", function (event, data) {
   $(".user-booking", $(this)).text(USER_REGISTRATION.name);
   $(".user-mail", $(this)).text(USER_REGISTRATION.email);

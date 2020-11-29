@@ -1,3 +1,8 @@
+/**
+ * When the user registration pages initiates it attaches methods to the page
+ * elements.
+ *
+ */
 $(document).on("pageinit", "#registration-page", function () {
   $("#chkOther").on("change", function (event) {
     if (this.checked) {
@@ -12,7 +17,7 @@ $(document).on("pageinit", "#registration-page", function () {
     event.preventDefault();
     const validationErrors = validateFormData();
 
-    /* clean possible past errors messages*/
+    /* clean possible past errors messages */
     $("#validation").html("");
 
     if (validationErrors.length > 0) {
@@ -51,7 +56,8 @@ $(document).on("pageinit", "#registration-page", function () {
 });
 
 /**
- * To validate the data entered into form
+ * Checks if there is any errors in the input data put by the user
+ * @return {array} validation - an array with the errors messages if there is any
  */
 function validateFormData() {
   const validation = [];

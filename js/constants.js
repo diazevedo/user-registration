@@ -1,3 +1,6 @@
+/** Shared data among the application */
+
+/** Data of the user after the user get registered into the application  */
 const USER_REGISTRATION = {
   name: "",
   email: "",
@@ -5,6 +8,7 @@ const USER_REGISTRATION = {
   interests: [],
 };
 
+/** Data of the user booking */
 const BOOK_REGISTRATION = {
   name: "",
   number_of_people: 1,

@@ -1,3 +1,6 @@
+/**
+ * before dialog to show the booking details opens it sets the values to the dialog.
+ */
 $(document).on("pagebeforeshow", "#booking-details", function (event, data) {
   $(".hidden").hide();
   $(".user-booking").text(BOOK_REGISTRATION.name);
