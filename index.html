@@ -61,7 +61,7 @@
       <!--<div data-role="content">-->
       <div data-role="main" class="ui-content">
         <!-- Name --->
-        <form>
+        
           <div data-role="fieldcontain" class="name-container">
             <label for="name">Name:</label>
             <input
@@ -191,14 +191,14 @@
 
           <!-- buttons --->
           <div class="flex-container">
-            <button data-inline="true" id="register-button" type="submit">
+            <button data-inline="true" id="register-button" type="button">
               Register
             </button>
             <button data-inline="true" type="reset" id="reset-form-button">
               Start Again
             </button>
           </div>
-        </form>
+        
         <a
           href="#user-dialog"
           class="dialog-link"
@@ -253,100 +253,98 @@
       <div data-role="main" class="ui-content">
         Enrol into one the units offered this coming weekend as listed below
         <br /><i>You may wish to brimg a friend along</i>
-        <form id="book-form">
+        
         <!-- Name --->
-          <div data-role="fieldcontain">
-            <label for="name-book-form">Name:</label>
-            <input
-              type="text"
-              name="name-book-form"
-              id="name-book-form"
-              required
-            />
-          </div>
-  
-          <!-- People --->
-          <div data-role="fieldcontain">
-            <label for="number-of-people">Number of People:</label>
-            <input type="number" name="number-of-people" id="number-of-people" value="1"/>
-          </div>
-  
-          <!-- Mobile --->
-          <div data-role="fieldcontain">
-            <label for="mobile">Mobile Phone:<br /><i>(optional)</i></label>
-            <input type="tel" name="mobile" id="mobile" pattern="[0-9]{10}" placeholder="0412345678"/>
-          </div>
-  
-          <!-- Units --->
-          <div data-role="fieldcontain">
-            <label for="week-units" class="select">Units offered this week:</label>
-            <select name="week-units" id="week-units">
-              <option value="Unit 1" data-price="100">Unit 1: The Camera and Lenses </option>
-              <option value="Unit 3" selected="selected" data-price="100">
-                Unit 3: Lighting $100
-              </option>
-              <option value="Unit 5" data-price="150">Unit 5: Style $150</option>
-              <option value="Unit 7" data-price="200">Unit 7: Photojournalism $200</option>
-            </select>
-          </div>
-  
-          <!-- Attend --->
-          <div data-role="fieldcontain">
-            <fieldset data-role="controlgroup">
-              <legend>Attend on:</legend>
-              <input type="radio" name="day-attend-on" id="friday-radio" checked="checked" value="Friday"/>
-              <label for="friday-radio">Friday</label>
-  
-              <input type="radio" name="day-attend-on" id="saturday-radio" value="Saturday" />
-              <label for="saturday-radio">Saturday</label>
-  
-              <input type="radio" name="day-attend-on" id="sunday-radio"  value="Sunday">
-              <label for="sunday-radio">Sunday</label>
-            </fieldset>
-          </div>
-  
-          <!-- SMS --->
-          <div data-role="fieldcontain">
-            <fieldset data-role="controlgroup">
-              <legend>SMS Notification:</legend>
-              <input
-                type="checkbox"
-                name="sms"
-                id="sms"
-                class="custom"
-                checked="checked"
-              />
-              <label for="sms">Receive SMS notification prior to event</label>
-            </fieldset>
-          </div>
-          
-          <div id="validation-book-form" class="error-container" data-inline="true"></div>
-  
-          <!-- buttons --->
-          <div class="flex-container">
-            <button
-              data-inline="true"
-              id="register-book-form"
-              type="submit"
-            >
-              Register
-            </button>
-            <button
-              data-inline="true"
-              type="reset"
-              id="reset-book-form"
-            >
-              Start Again
-            </button>
-          </div>
+        <div data-role="fieldcontain">
+          <label for="name-book-form">Name:</label>
+          <input
+            type="text"
+            name="name-book-form"
+            id="name-book-form"
+            required
+          />
         </div>
-      </form>
-  
-      
+
+        <!-- People --->
+        <div data-role="fieldcontain">
+          <label for="number-of-people">Number of People:</label>
+          <input type="number" name="number-of-people" id="number-of-people" value="1"/>
+        </div>
+
+        <!-- Mobile --->
+        <div data-role="fieldcontain">
+          <label for="mobile">Mobile Phone:<br /><i>(optional)</i></label>
+          <input type="tel" name="mobile" id="mobile" pattern="[0-9]{10}" placeholder="0412345678"/>
+        </div>
+
+        <!-- Units --->
+        <div data-role="fieldcontain">
+          <label for="week-units" class="select">Units offered this week:</label>
+          <select name="week-units" id="week-units">
+            <option value="Unit 1" data-price="100">Unit 1: The Camera and Lenses </option>
+            <option value="Unit 3" selected="selected" data-price="100">
+              Unit 3: Lighting $100
+            </option>
+            <option value="Unit 5" data-price="150">Unit 5: Style $150</option>
+            <option value="Unit 7" data-price="200">Unit 7: Photojournalism $200</option>
+          </select>
+        </div>
+
+        <!-- Attend --->
+        <div data-role="fieldcontain">
+          <fieldset data-role="controlgroup">
+            <legend>Attend on:</legend>
+            <input type="radio" name="day-attend-on" id="friday-radio" checked="checked" value="Friday"/>
+            <label for="friday-radio">Friday</label>
+
+            <input type="radio" name="day-attend-on" id="saturday-radio" value="Saturday" />
+            <label for="saturday-radio">Saturday</label>
+
+            <input type="radio" name="day-attend-on" id="sunday-radio"  value="Sunday">
+            <label for="sunday-radio">Sunday</label>
+          </fieldset>
+        </div>
+
+        <!-- SMS --->
+        <div data-role="fieldcontain">
+          <fieldset data-role="controlgroup">
+            <legend>SMS Notification:</legend>
+            <input
+              type="checkbox"
+              name="sms"
+              id="sms"
+              class="custom"
+              checked="checked"
+            />
+            <label for="sms">Receive SMS notification prior to event</label>
+          </fieldset>
+        </div>
+        
+        <div id="validation-book-form" class="error-container" data-inline="true"></div>
+
+          <!-- buttons --->
+        <div class="flex-container">
+          <button
+            data-inline="true"
+            id="register-book-form"
+            type="button"
+          >
+            Register
+          </button>
+          <button
+            data-inline="true"
+            type="reset"
+            id="reset-book-form"
+          >
+            Start Again
+          </button>
+        </div>
+      </div>
+
       <div data-role="footer">
         <h4>Luciano Azevedo</h4>
       </div>
-  
+
       <a href="#booking-details" class="dialog-link" id="open-dialog-book-details" data-prefetch>Open dialog</a>
     </div>
     

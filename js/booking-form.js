@@ -2,9 +2,8 @@
  * on the booking form page initialisation the methods are attached to the page
  * elements --> Form submit
  */
-
 $(document).on("pageinit", "#booking-form-page", function () {
-  $("#book-form").on("submit", function (event) {
+  $("#register-book-form").on("click", function (event) {
     event.preventDefault();
     const validationErrors = validateBookForm();
 

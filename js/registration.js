@@ -13,7 +13,7 @@ $(document).on("pageinit", "#registration-page", function () {
     }
   });
 
-  $("form").on("submit", function (event) {
+  $("#register-button").on("click", function (event) {
     event.preventDefault();
     const validationErrors = validateFormData();
 
